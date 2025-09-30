@@ -1,10 +1,9 @@
 import random
-from operator import truediv
 
 from pico2d import *
 import time
 
-# from pygame.examples.go_over_there import balls
+
 
 delta_time = 0.0
 ballcount = 0
