@@ -7,16 +7,22 @@ import time
 # from pygame.examples.go_over_there import balls
 
 delta_time = 0.0
-
+ballcount = 0
 #시작
 class Ball:
     def __init__(self):
-        self.x = random.randint(0,800)
+        global ballcount
+        self.x = random.randint(0,780)
         self.y = 599
-        self.image = load_image('ball21x21.png')
+        ballcount+=1
+        if ballcount <= 10:
+            self.image = load_image('ball21x21.png')
+        else:
+            self.image = load_image('ball41x41.png')
         self.speed = random.randint(5,25)
     def update(self):
-        self.y -= self.speed
+        if self.y > 50:
+            self.y -= self.speed
     def draw(self):
         self.image.draw(self.x,self.y)
 
