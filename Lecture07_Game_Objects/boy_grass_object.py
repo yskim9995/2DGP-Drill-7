@@ -2,6 +2,8 @@ import random
 from operator import truediv
 
 from pico2d import *
+import time
+
 
 #시작
 class Ball:
@@ -10,6 +12,8 @@ class Ball:
         self.y = 599
         self.image = load_image('ball21x21.png')
         self.speed = random.randint(5,40)
+    def update(self):
+        self.y -= self.speed *
 
 
 class Zombie:
@@ -68,6 +72,9 @@ def handle_events():
 
 
 def reset_world():
+    global last_time
+    last_time = time.perf_counter()
+
     global world
     world = []
     grass = Grass()  # 인스턴스 생성
@@ -79,6 +86,10 @@ def reset_world():
 
 
 def update_world():
+    global last_time
+    current_time = time.perf_counter()
+    delta_time = current_time - last_time
+    last_time = current_time
     for obj in world:
         obj.update()
     pass
