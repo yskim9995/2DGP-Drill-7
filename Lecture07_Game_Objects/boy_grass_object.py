@@ -4,6 +4,14 @@ from operator import truediv
 from pico2d import *
 
 #시작
+class Ball:
+    def __init__(self):
+        self.x = random.randint(0,800)
+        self.y = 599
+        self.image = load_image('ball21x21.png')
+        self.speed = random.randint(5,40)
+
+
 class Zombie:
     def __init__(self):
         self.x = random.randint(-50,100)
