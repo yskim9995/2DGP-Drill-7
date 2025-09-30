@@ -4,6 +4,8 @@ from operator import truediv
 from pico2d import *
 import time
 
+from pygame.examples.go_over_there import balls
+
 
 #시작
 class Ball:
@@ -13,7 +15,7 @@ class Ball:
         self.image = load_image('ball21x21.png')
         self.speed = random.randint(5,40)
     def update(self):
-        self.y -= self.speed *
+        self.y -= self.speed
 
 
 class Zombie:
@@ -58,7 +60,7 @@ class Boy:
 # 전역 변수 선언
 grass = None
 running = True
-
+delta_time = 0
 team = []
 
 def handle_events():
@@ -83,7 +85,8 @@ def reset_world():
     world+=team
     zombies = [Zombie() for _ in range(11)]
     world+=zombies
-
+    balls = [Ball() for _ in range(20)]
+    world+=balls
 
 def update_world():
     global last_time
