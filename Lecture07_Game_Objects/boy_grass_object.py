@@ -3,6 +3,7 @@ from operator import truediv
 
 from pico2d import *
 
+#시작
 class Zombie:
     def __init__(self):
         self.x = random.randint(-50,100)
